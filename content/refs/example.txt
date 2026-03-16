@@ -1,9 +1,7 @@
 ---PUBLISH BLOCK---
 TYPE: refs
-TITLE: Static Site Resources
-TAG/SECTION: links
+TITLE: GitHub Pages Docs
+TAG/SECTION: tools
 DATE: March 16, 2026
-BODY: GitHub Pages docs: https://docs.github.com/en/pages — covers custom domains, Jekyll, and serving from a subfolder.
-
-Node.js fs module: https://nodejs.org/api/fs.html — everything you need to read and write files without dependencies.
+BODY: https://docs.github.com/en/pages
 ---END---

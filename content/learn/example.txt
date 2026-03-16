@@ -1,9 +1,9 @@
 ---PUBLISH BLOCK---
 TYPE: learn
 TITLE: How GitHub Pages Works
-TAG/SECTION: tools
+TAG/SECTION: foundations
 DATE: March 16, 2026
-BODY: GitHub Pages serves static files directly from a repo branch. You can point it at a specific folder — like /site — so your source files and output don't mix.
+BODY: GitHub Pages serves static files directly from a repo branch. You can point it at a specific folder — like /docs — so your source files and output don't mix.
 
 No build server required. Push HTML, it goes live.
 ---END---
