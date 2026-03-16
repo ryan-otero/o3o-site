@@ -1,7 +1,7 @@
 ---PUBLISH BLOCK---
 TYPE: think
 TITLE: On Building in Public
-TAG/SECTION: idea
+TAG: take
 DATE: March 16, 2026
 BODY: There's something clarifying about showing your work before it's finished. The pressure to present a polished version of yourself dissolves when you commit to transparency.
 
