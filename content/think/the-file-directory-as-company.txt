@@ -1,0 +1,10 @@
+---PUBLISH BLOCK---
+TYPE: think
+TITLE: The File Directory as Company
+TAG: idea
+DATE: March 16, 2026
+BODY:
+In an AI-first world, the file directory is the company. The structure you build — folders, naming, hierarchy — is how the system understands what you're doing and why.
+There's a visualization tool buried in this idea. Something that lets you click through your directory and see how everything connects. Not a file explorer — more like a map. Progressive disclosure in practice: you see the shape of the company before you see the files.
+But the more interesting version is a "design Claude" program. Because that's actually what you're doing when you structure a directory for AI. You're not organizing files. You're designing the mind that works inside your company.
+---END---
