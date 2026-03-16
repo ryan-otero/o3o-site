@@ -15,7 +15,7 @@ function parseContentFile(filePath) {
 
   const block = match[1].trim();
   const lines = block.split('\n');
-  const entry = { type: null, title: null, tag: null, date: null, body: '' };
+  const entry = { type: null, title: null, tag: null, date: null, body: '', url: null };
   let inBody = false;
 
   for (const line of lines) {
@@ -25,9 +25,12 @@ function parseContentFile(filePath) {
     }
     if (line.startsWith('TYPE:'))        { entry.type  = line.slice(5).trim();  continue; }
     if (line.startsWith('TITLE:'))       { entry.title = line.slice(6).trim();  continue; }
+    if (line.startsWith('NAME:'))        { entry.title = line.slice(5).trim();  continue; }
     if (line.startsWith('TAG/SECTION:')) { entry.tag   = line.slice(12).trim(); continue; }
     if (line.startsWith('TAG:'))         { entry.tag   = line.slice(4).trim();  continue; }
+    if (line.startsWith('NOTE:'))        { entry.tag   = line.slice(5).trim();  continue; }
     if (line.startsWith('DATE:'))        { entry.date  = line.slice(5).trim();  continue; }
+    if (line.startsWith('URL:'))         { entry.url   = line.slice(4).trim();  continue; }
     if (line.startsWith('BODY:'))        { entry.body  = line.slice(5).trim();  inBody = true; continue; }
   }
 
@@ -102,7 +105,7 @@ function renderBuildEntry(e) {
 }
 
 function renderRefEntry(e) {
-  const url = extractUrl(e.body);
+  const url = e.url || extractUrl(e.body);
   return `
           <div class="ref-item">
             <span class="ref-name">${e.title}</span>
@@ -125,7 +128,7 @@ function build() {
   const build_       = all.filter(e => e.type === 'build');
   const foundations  = all.filter(e => e.type === 'learn' && e.tag === 'foundations');
   const applied      = all.filter(e => e.type === 'learn' && e.tag === 'applied');
-  const refs         = all.filter(e => e.type === 'refs');
+  const refs         = all.filter(e => e.type === 'refs' || e.type === 'ref');
 
   const injections = {
     '<!-- THINK_CONTENT -->':              think.map(renderThinkEntry).join('\n') || '',

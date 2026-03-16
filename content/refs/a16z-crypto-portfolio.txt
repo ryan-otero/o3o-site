@@ -1,0 +1,6 @@
+---PUBLISH BLOCK---
+TYPE: ref
+NAME: a16z Crypto Portfolio
+URL: https://a16zcrypto.com/portfolio/
+NOTE: Website design inspiration
+---END---
