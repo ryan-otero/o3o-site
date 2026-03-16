@@ -1,0 +1,7 @@
+---PUBLISH BLOCK---
+TYPE: think
+TITLE: Claude needs one memory layer across all its surfaces
+TAG: idea
+DATE: March 16, 2026
+BODY: There are three Claude products that people use in completely different modes — claude.ai for thinking, Cowork for tasks, Code for building — and they share zero context with each other. Every session starts cold. The people bouncing between all three aren't casual users. They're the ones doing the most work inside Anthropic's ecosystem. And right now they're manually re-explaining themselves every time they switch surfaces. One shared context layer fixes this. Not a sync feature — a persistent, cross-surface memory that travels with you regardless of which Claude product you open. The value isn't any single product getting smarter. It's the whole stack becoming one coherent tool. That's a different pricing story too. The person who lives across all three surfaces would pay significantly more for that than for any individual subscription.
+---END---
