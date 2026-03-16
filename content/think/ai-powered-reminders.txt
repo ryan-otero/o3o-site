@@ -1,0 +1,10 @@
+---PUBLISH BLOCK---
+TYPE: think
+TITLE: AI-Powered Reminders
+TAG: idea
+DATE: March 16, 2026
+BODY:
+Bookmarking is broken. Save something, never see it again. The problem isn't saving — it's that nothing ever surfaces it back to you.
+The idea: a brain dump layer where you throw in anything — links, thoughts, half-formed ideas — and the AI handles the organizing. No manual tagging, no folders. Just input.
+From there it reminds you on a cadence (daily, weekly) and over time starts classifying what you're actually saving. Patterns emerge. You don't have to think about structure upfront — it builds itself from usage.
+---END---
