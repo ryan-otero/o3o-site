@@ -26,6 +26,7 @@ function parseContentFile(filePath) {
     if (line.startsWith('TYPE:'))        { entry.type  = line.slice(5).trim();  continue; }
     if (line.startsWith('TITLE:'))       { entry.title = line.slice(6).trim();  continue; }
     if (line.startsWith('TAG/SECTION:')) { entry.tag   = line.slice(12).trim(); continue; }
+    if (line.startsWith('TAG:'))         { entry.tag   = line.slice(4).trim();  continue; }
     if (line.startsWith('DATE:'))        { entry.date  = line.slice(5).trim();  continue; }
     if (line.startsWith('BODY:'))        { entry.body  = line.slice(5).trim();  inBody = true; continue; }
   }
