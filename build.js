@@ -2,8 +2,8 @@ const fs = require('fs');
 const path = require('path');
 
 const CONTENT_DIR = path.join(__dirname, 'content');
-const TEMPLATE_FILE = path.join(__dirname, 'site', 'template.html');
-const OUTPUT_FILE = path.join(__dirname, 'site', 'index.html');
+const TEMPLATE_FILE = path.join(__dirname, 'docs', 'template.html');
+const OUTPUT_FILE = path.join(__dirname, 'docs', 'index.html');
 const CONTENT_TYPES = ['think', 'learn', 'build', 'refs'];
 
 // Parse a single content file into a structured object.
