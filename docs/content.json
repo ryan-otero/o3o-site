@@ -26,6 +26,14 @@
     },
     {
       "type": "think",
+      "title": "Building an AI Strategy for My Team",
+      "tag": "idea",
+      "date": "March 16, 2026",
+      "body": "Most teams fall behind on AI not because they don't care — because there's no system forcing the signal through the noise. The fix is infrastructure, not motivation.\nStart with a dedicated Slack channel. Use a workflow to let anyone drop a link, tool, or update and have it auto-post in a clean format — source, one-line summary, why it matters. Low friction is the whole point. If posting feels like work, people won't do it.\nThe real unlock is the periodic digest. Pull everything from the channel on a set cadence — weekly makes sense — run it through an AI summarizer, and have it surface two things: what's worth knowing, and what we should actually act on (new integrations, workflow changes, tools worth piloting).\nThat second layer is what separates a feed from a strategy. Anyone can curate links. The digest creates accountability — it forces the team to ask \"what are we doing about this?\" on a regular cadence.\nBeyond the channel, there's probably a broader layer worth thinking through: internal tooling audits, designated owners for AI adoption, and a lightweight way to track what the team has actually tried and what stuck.",
+      "url": null
+    },
+    {
+      "type": "think",
       "title": "On Building in Public",
       "tag": "idea",
       "date": "March 16, 2026",
