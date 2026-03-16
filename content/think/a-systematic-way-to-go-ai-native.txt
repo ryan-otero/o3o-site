@@ -1,0 +1,11 @@
+---PUBLISH BLOCK---
+TYPE: think
+TITLE: A Systematic Way to Go AI-Native
+TAG: idea
+DATE: March 16, 2026
+BODY:
+Most "AI workflows" are just old workflows with ChatGPT duct-taped in. That's AI-augmented. AI-native means you'd design it from scratch knowing AI exists.
+The idea: a structured method for taking any workflow — manual or already AI-touched — and rebuilding it properly. Not patching, rebuilding.
+Before you redesign anything, you run a diagnostic. Every step in the workflow gets classified: does this require human judgment, can it be automated, or is it just redundant noise that shouldn't exist at all. You can't see that without mapping it first.
+The output is visual — built in something like Figma or Excalidraw. The map is the method. You lay out the current workflow, apply the diagnostic to each node, then redesign around what's left. The canvas makes it obvious where AI fits and where it doesn't.
+---END---
