@@ -9,519 +9,110 @@
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 :root {
-  --bg: #0e0909;
-  --text: #f2f0ee;
-  --muted: #7a7470;
-  --dim: #3a3230;
-  --accent: #e8d5b0;
-  --accent2: #c9b99a;
-  --surface: #1a1212;
-  --border: rgba(242,240,238,0.12);
-  --border-solid: rgba(242,240,238,0.7);
-  --mono: 'Space Mono', monospace;
-  --sans: 'Instrument Sans', sans-serif;
-  --tag-idea: #d4e8c2;
-  --tag-breakdown: #c2d4e8;
-  --tag-take: #e8c2c2;
-  --tag-question: #e8dcc2;
+  --bg: #0e0909; --text: #f2f0ee; --muted: #7a7470; --dim: #3a3230;
+  --accent: #e8d5b0; --accent2: #c9b99a; --surface: #1a1212;
+  --border: rgba(242,240,238,0.12); --border-solid: rgba(242,240,238,0.7);
+  --mono: 'Space Mono', monospace; --sans: 'Instrument Sans', sans-serif;
+  --tag-idea: #d4e8c2; --tag-breakdown: #c2d4e8; --tag-take: #e8c2c2; --tag-question: #e8dcc2;
 }
 html { scroll-behavior: smooth; }
-body {
-  background: var(--bg);
-  color: var(--text);
-  font-family: var(--sans);
-  font-size: 15px;
-  line-height: 1.6;
-  -webkit-font-smoothing: antialiased;
-  min-height: 100vh;
-}
-/* ─── HIDE PAGES ─── */
-.page { display: none; }
-.page.active { display: block; }
-/* ─── NAV ─── */
-nav {
-  position: sticky;
-  top: 0;
-  z-index: 200;
-  background: var(--bg);
-  border-bottom: 1px solid var(--border-solid);
-  height: 52px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 44px;
-}
-.nav-logo {
-  font-family: var(--mono);
-  font-size: 17px;
-  font-weight: 700;
-  color: var(--text);
-  cursor: pointer;
-  letter-spacing: -0.03em;
-  transition: opacity 0.15s;
-}
+body { background: var(--bg); color: var(--text); font-family: var(--sans); font-size: 15px; line-height: 1.6; -webkit-font-smoothing: antialiased; min-height: 100vh; }
+.page { display: none; } .page.active { display: block; }
+nav { position: sticky; top: 0; z-index: 200; background: var(--bg); border-bottom: 1px solid var(--border-solid); height: 52px; display: flex; align-items: center; justify-content: space-between; padding: 0 44px; }
+.nav-logo { font-family: var(--mono); font-size: 17px; font-weight: 700; color: var(--text); cursor: pointer; letter-spacing: -0.03em; transition: opacity 0.15s; }
 .nav-logo:hover { opacity: 0.65; }
-.nav-links {
-  display: flex;
-  gap: 32px;
-  list-style: none;
-}
-.nav-links a {
-  font-family: var(--mono);
-  font-size: 12px;
-  color: var(--muted);
-  text-decoration: none;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  transition: color 0.15s;
-  cursor: pointer;
-}
-.nav-links a:hover,
-.nav-links a.active { color: var(--text); }
-/* ─── HOME PAGE ─── */
-#page-home {
-  display: none;
-}
-#page-home.active { display: block; }
-.home-hero {
-  padding: 96px 44px 80px;
-  border-bottom: 1px dashed var(--border);
-}
-.home-eyebrow {
-  font-family: var(--mono);
-  font-size: 11px;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--muted);
-  margin-bottom: 24px;
-}
-.home-headline {
-  font-family: var(--mono);
-  font-size: clamp(40px, 6vw, 80px);
-  font-weight: 700;
-  line-height: 0.95;
-  letter-spacing: -0.04em;
-  color: var(--text);
-  margin-bottom: 40px;
-}
-.home-bio {
-  max-width: 560px;
-  font-size: 16px;
-  color: var(--muted);
-  line-height: 1.7;
-  border-left: 2px solid var(--dim);
-  padding-left: 20px;
-}
-.home-sections {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  border-top: 1px dashed var(--border);
-}
-.home-section-card {
-  padding: 44px 44px 40px;
-  border-right: 1px dashed var(--border);
-  cursor: pointer;
-  transition: background 0.2s;
-  position: relative;
-}
-.home-section-card:last-child { border-right: none; }
-.home-section-card:hover { background: var(--surface); }
-.hsc-label {
-  font-family: var(--mono);
-  font-size: 11px;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--muted);
-  margin-bottom: 16px;
-}
-.hsc-title {
-  font-family: var(--mono);
-  font-size: 28px;
-  font-weight: 700;
-  color: var(--text);
-  margin-bottom: 14px;
-  letter-spacing: -0.03em;
-}
-.hsc-desc {
-  font-size: 14px;
-  color: var(--muted);
-  line-height: 1.65;
-  margin-bottom: 28px;
-}
-.hsc-arrow {
-  font-family: var(--mono);
-  font-size: 13px;
-  color: var(--accent2);
-  letter-spacing: 0.04em;
-}
-/* ─── SHARED SECTION CHROME ─── */
-.page-header {
-  padding: 56px 44px 44px;
-  border-bottom: 1px solid var(--border-solid);
-}
-.page-header-row {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 24px;
-  flex-wrap: wrap;
-}
-.page-title {
-  font-family: var(--mono);
-  font-size: clamp(32px, 4vw, 52px);
-  font-weight: 700;
-  letter-spacing: -0.04em;
-  line-height: 1;
-  color: var(--text);
-}
-.page-subtitle {
-  font-size: 14px;
-  color: var(--muted);
-  margin-top: 10px;
-  max-width: 480px;
-}
-/* ─── LEARN PAGE ─── */
-.learn-layout {
-  display: grid;
-  grid-template-columns: 200px 1fr;
-  min-height: calc(100vh - 52px - 140px);
-}
-.learn-subnav {
-  border-right: 1px dashed var(--border);
-  padding: 36px 0;
-  position: sticky;
-  top: 52px;
-  height: calc(100vh - 52px);
-  overflow-y: auto;
-}
-.subnav-item {
-  display: block;
-  padding: 9px 28px;
-  font-family: var(--mono);
-  font-size: 11px;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--muted);
-  cursor: pointer;
-  border-left: 2px solid transparent;
-  transition: color 0.15s, border-color 0.15s;
-  text-decoration: none;
-}
-.subnav-item:hover { color: var(--text); }
-.subnav-item.active {
-  color: var(--text);
-  border-left-color: var(--accent);
-}
+.nav-links { display: flex; gap: 32px; list-style: none; }
+.nav-links a { font-family: var(--mono); font-size: 12px; color: var(--muted); text-decoration: none; letter-spacing: 0.06em; text-transform: uppercase; transition: color 0.15s; cursor: pointer; }
+.nav-links a:hover, .nav-links a.active { color: var(--text); }
+#page-home { display: none; } #page-home.active { display: block; }
+.home-hero { padding: 96px 44px 80px; border-bottom: 1px dashed var(--border); }
+.home-eyebrow { font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); margin-bottom: 24px; }
+.home-headline { font-family: var(--mono); font-size: clamp(40px, 6vw, 80px); font-weight: 700; line-height: 0.95; letter-spacing: -0.04em; color: var(--text); margin-bottom: 40px; }
+.home-bio { max-width: 560px; font-size: 16px; color: var(--muted); line-height: 1.7; border-left: 2px solid var(--dim); padding-left: 20px; }
+.home-sections { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px dashed var(--border); }
+.home-section-card { padding: 44px 44px 40px; border-right: 1px dashed var(--border); cursor: pointer; transition: background 0.2s; position: relative; }
+.home-section-card:last-child { border-right: none; } .home-section-card:hover { background: var(--surface); }
+.hsc-label { font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); margin-bottom: 16px; }
+.hsc-title { font-family: var(--mono); font-size: 28px; font-weight: 700; color: var(--text); margin-bottom: 14px; letter-spacing: -0.03em; }
+.hsc-desc { font-size: 14px; color: var(--muted); line-height: 1.65; margin-bottom: 28px; }
+.hsc-arrow { font-family: var(--mono); font-size: 13px; color: var(--accent2); letter-spacing: 0.04em; }
+.page-header { padding: 56px 44px 44px; border-bottom: 1px solid var(--border-solid); }
+.page-header-row { display: flex; align-items: baseline; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
+.page-title { font-family: var(--mono); font-size: clamp(32px, 4vw, 52px); font-weight: 700; letter-spacing: -0.04em; line-height: 1; color: var(--text); }
+.page-subtitle { font-size: 14px; color: var(--muted); margin-top: 10px; max-width: 480px; }
+.learn-layout { display: grid; grid-template-columns: 200px 1fr; min-height: calc(100vh - 52px - 140px); }
+.learn-subnav { border-right: 1px dashed var(--border); padding: 36px 0; position: sticky; top: 52px; height: calc(100vh - 52px); overflow-y: auto; }
+.subnav-item { display: block; padding: 9px 28px; font-family: var(--mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); cursor: pointer; border-left: 2px solid transparent; transition: color 0.15s, border-color 0.15s; text-decoration: none; }
+.subnav-item:hover { color: var(--text); } .subnav-item.active { color: var(--text); border-left-color: var(--accent); }
 .learn-content { padding: 48px 44px 80px; }
-.learn-section { display: none; }
-.learn-section.active { display: block; }
-.learn-section-title {
-  font-family: var(--mono);
-  font-size: 22px;
-  font-weight: 700;
-  letter-spacing: -0.03em;
-  color: var(--text);
-  margin-bottom: 8px;
-}
-.learn-section-desc {
-  font-size: 14px;
-  color: var(--muted);
-  margin-bottom: 36px;
-  padding-bottom: 24px;
-  border-bottom: 1px dashed var(--border);
-}
-.learn-entry {
-  padding: 24px 0;
-  border-bottom: 1px dashed var(--border);
-}
-.learn-entry-title {
-  font-family: var(--sans);
-  font-size: 18px;
-  font-weight: 600;
-  color: var(--text);
-  margin-bottom: 6px;
-  cursor: pointer;
-  transition: opacity 0.15s;
-}
+.learn-section { display: none; } .learn-section.active { display: block; }
+.learn-section-title { font-family: var(--mono); font-size: 22px; font-weight: 700; letter-spacing: -0.03em; color: var(--text); margin-bottom: 8px; }
+.learn-section-desc { font-size: 14px; color: var(--muted); margin-bottom: 36px; padding-bottom: 24px; border-bottom: 1px dashed var(--border); }
+.learn-entry { padding: 24px 0; border-bottom: 1px dashed var(--border); }
+.learn-entry-title { font-family: var(--sans); font-size: 18px; font-weight: 600; color: var(--text); margin-bottom: 6px; cursor: pointer; transition: opacity 0.15s; }
 .learn-entry-title:hover { opacity: 0.7; }
-.learn-entry-meta {
-  font-family: var(--mono);
-  font-size: 11px;
-  color: var(--muted);
-  margin-bottom: 8px;
-}
-.learn-entry-excerpt {
-  font-size: 14px;
-  color: var(--muted);
-  line-height: 1.65;
-}
-.learn-empty {
-  padding: 32px 0;
-  font-family: var(--mono);
-  font-size: 12px;
-  color: var(--dim);
-  letter-spacing: 0.06em;
-}
-/* References section */
-.references-section {
-  margin-top: 48px;
-  padding-top: 32px;
-  border-top: 2px solid var(--border-solid);
-}
-.references-title {
-  font-family: var(--mono);
-  font-size: 13px;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--muted);
-  margin-bottom: 20px;
-}
-.ref-item {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  padding: 12px 0;
-  border-bottom: 1px dashed var(--border);
-  gap: 16px;
-}
-.ref-name {
-  font-size: 14px;
-  color: var(--text);
-}
-.ref-link {
-  font-family: var(--mono);
-  font-size: 11px;
-  color: var(--muted);
-  text-decoration: none;
-  transition: color 0.15s;
-}
+.learn-entry-meta { font-family: var(--mono); font-size: 11px; color: var(--muted); margin-bottom: 8px; }
+.learn-entry-excerpt { font-size: 14px; color: var(--muted); line-height: 1.65; }
+.learn-empty { padding: 32px 0; font-family: var(--mono); font-size: 12px; color: var(--dim); letter-spacing: 0.06em; }
+.references-section { margin-top: 48px; padding-top: 32px; border-top: 2px solid var(--border-solid); }
+.references-title { font-family: var(--mono); font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-bottom: 20px; }
+.ref-item { display: flex; align-items: baseline; justify-content: space-between; padding: 12px 0; border-bottom: 1px dashed var(--border); gap: 16px; }
+.ref-name { font-size: 14px; color: var(--text); }
+.ref-link { font-family: var(--mono); font-size: 11px; color: var(--muted); text-decoration: none; transition: color 0.15s; }
 .ref-link:hover { color: var(--accent); }
-/* ─── BUILD PAGE ─── */
-.build-filters {
-  padding: 24px 44px;
-  display: flex;
-  gap: 10px;
-  border-bottom: 1px dashed var(--border);
-}
-.filter-pill {
-  font-family: var(--mono);
-  font-size: 11px;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  padding: 6px 16px;
-  border-radius: 999px;
-  border: 1px solid var(--border-solid);
-  background: transparent;
-  color: var(--muted);
-  cursor: pointer;
-  transition: background 0.15s, color 0.15s;
-}
-.filter-pill:hover { color: var(--text); }
-.filter-pill.active {
-  background: var(--text);
-  color: var(--bg);
-  border-color: var(--text);
-}
-.build-grid {
-  padding: 44px;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-  gap: 1px;
-  background: var(--border);
-}
-.project-card {
-  background: var(--bg);
-  padding: 32px;
-  transition: background 0.15s;
-}
-.project-card:hover { background: var(--surface); }
-.project-card[data-hidden="true"] { display: none; }
-.project-status {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  font-family: var(--mono);
-  font-size: 10px;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--muted);
-  margin-bottom: 16px;
-}
-.status-dot {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-}
-.status-dot.live { background: #7ec87e; }
-.status-dot.in-progress { background: #e8c87e; }
-.status-dot.archive { background: var(--dim); }
-.project-title {
-  font-family: var(--sans);
-  font-size: 20px;
-  font-weight: 600;
-  color: var(--text);
-  margin-bottom: 10px;
-  line-height: 1.2;
-}
-.project-desc {
-  font-size: 13px;
-  color: var(--muted);
-  line-height: 1.65;
-  margin-bottom: 20px;
-}
-.project-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-}
-.project-tag {
-  font-family: var(--mono);
-  font-size: 10px;
-  letter-spacing: 0.05em;
-  padding: 3px 9px;
-  border: 1px solid var(--border);
-  color: var(--muted);
-  border-radius: 3px;
-}
-/* ─── THINK PAGE ─── */
-.think-filters {
-  padding: 24px 44px;
-  display: flex;
-  gap: 8px;
-  flex-wrap: wrap;
-  border-bottom: 1px dashed var(--border);
-}
-.tag-pill {
-  font-family: var(--mono);
-  font-size: 11px;
-  letter-spacing: 0.04em;
-  padding: 4px 12px;
-  border-radius: 4px;
-  border: 1px solid var(--border);
-  background: transparent;
-  color: var(--muted);
-  cursor: pointer;
-  transition: all 0.15s;
-}
+.build-filters { padding: 24px 44px; display: flex; gap: 10px; border-bottom: 1px dashed var(--border); }
+.filter-pill { font-family: var(--mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; padding: 6px 16px; border-radius: 999px; border: 1px solid var(--border-solid); background: transparent; color: var(--muted); cursor: pointer; transition: background 0.15s, color 0.15s; }
+.filter-pill:hover { color: var(--text); } .filter-pill.active { background: var(--text); color: var(--bg); border-color: var(--text); }
+.build-grid { padding: 44px; display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1px; background: var(--border); }
+.project-card { background: var(--bg); padding: 32px; transition: background 0.15s; }
+.project-card:hover { background: var(--surface); } .project-card[data-hidden="true"] { display: none; }
+.project-status { display: inline-flex; align-items: center; gap: 6px; font-family: var(--mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-bottom: 16px; }
+.status-dot { width: 6px; height: 6px; border-radius: 50%; }
+.status-dot.live { background: #7ec87e; } .status-dot.in-progress { background: #e8c87e; } .status-dot.archive { background: var(--dim); }
+.project-title { font-family: var(--sans); font-size: 20px; font-weight: 600; color: var(--text); margin-bottom: 10px; line-height: 1.2; }
+.project-desc { font-size: 13px; color: var(--muted); line-height: 1.65; margin-bottom: 20px; }
+.project-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+.project-tag { font-family: var(--mono); font-size: 10px; letter-spacing: 0.05em; padding: 3px 9px; border: 1px solid var(--border); color: var(--muted); border-radius: 3px; }
+.think-filters { padding: 24px 44px; display: flex; gap: 8px; flex-wrap: wrap; border-bottom: 1px dashed var(--border); }
+.tag-pill { font-family: var(--mono); font-size: 11px; letter-spacing: 0.04em; padding: 4px 12px; border-radius: 4px; border: 1px solid var(--border); background: transparent; color: var(--muted); cursor: pointer; transition: all 0.15s; }
 .tag-pill[data-tag="idea"].active   { background: var(--tag-idea);      color: #2a3a1a; border-color: var(--tag-idea); }
 .tag-pill[data-tag="breakdown"].active { background: var(--tag-breakdown); color: #1a2a3a; border-color: var(--tag-breakdown); }
 .tag-pill[data-tag="take"].active   { background: var(--tag-take);      color: #3a1a1a; border-color: var(--tag-take); }
 .tag-pill[data-tag="question"].active { background: var(--tag-question); color: #3a301a; border-color: var(--tag-question); }
-.tag-pill.active { opacity: 1; }
-.tag-pill:hover { color: var(--text); border-color: var(--border-solid); }
-.think-feed {
-  padding: 0 44px 80px;
-}
-.post-row {
-  padding: 36px 0;
-  border-bottom: 1px dashed var(--border);
-  transition: opacity 0.15s;
-}
+.tag-pill.active { opacity: 1; } .tag-pill:hover { color: var(--text); border-color: var(--border-solid); }
+.think-feed { padding: 0 44px 80px; }
+.post-row { padding: 36px 0; border-bottom: 1px dashed var(--border); transition: opacity 0.15s; }
 .post-row[data-hidden="true"] { display: none; }
-.post-meta {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin-bottom: 10px;
-}
-.post-date {
-  font-family: var(--mono);
-  font-size: 11px;
-  color: var(--muted);
-  letter-spacing: 0.04em;
-}
-.post-tag-badge {
-  font-family: var(--mono);
-  font-size: 10px;
-  letter-spacing: 0.04em;
-  padding: 2px 8px;
-  border-radius: 3px;
-}
+.post-meta { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
+.post-date { font-family: var(--mono); font-size: 11px; color: var(--muted); letter-spacing: 0.04em; }
+.post-tag-badge { font-family: var(--mono); font-size: 10px; letter-spacing: 0.04em; padding: 2px 8px; border-radius: 3px; }
 .post-tag-badge.idea      { background: var(--tag-idea);      color: #2a3a1a; }
 .post-tag-badge.breakdown { background: var(--tag-breakdown); color: #1a2a3a; }
 .post-tag-badge.take      { background: var(--tag-take);      color: #3a1a1a; }
 .post-tag-badge.question  { background: var(--tag-question);  color: #3a301a; }
-.post-title {
-  font-family: var(--sans);
-  font-size: 22px;
-  font-weight: 600;
-  color: var(--text);
-  margin-bottom: 8px;
-  line-height: 1.25;
-  cursor: pointer;
-  transition: opacity 0.15s;
-}
+.post-title { font-family: var(--sans); font-size: 22px; font-weight: 600; color: var(--text); margin-bottom: 8px; line-height: 1.25; cursor: pointer; transition: opacity 0.15s; }
 .post-title:hover { opacity: 0.7; }
-.post-excerpt {
-  font-size: 14px;
-  color: var(--muted);
-  line-height: 1.7;
-  max-width: 680px;
-}
-/* ─── FOOTER ─── */
-footer {
-  border-top: 1px dashed var(--border);
-  padding: 28px 44px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 12px;
-}
-.footer-logo {
-  font-family: var(--mono);
-  font-size: 14px;
-  font-weight: 700;
-  color: var(--muted);
-  letter-spacing: -0.03em;
-}
-.footer-note {
-  font-family: var(--mono);
-  font-size: 11px;
-  color: var(--dim);
-  letter-spacing: 0.06em;
-}
-/* ─── RESPONSIVE ─── */
+.post-excerpt { font-size: 14px; color: var(--muted); line-height: 1.7; max-width: 680px; }
+footer { border-top: 1px dashed var(--border); padding: 28px 44px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+.footer-logo { font-family: var(--mono); font-size: 14px; font-weight: 700; color: var(--muted); letter-spacing: -0.03em; }
+.footer-note { font-family: var(--mono); font-size: 11px; color: var(--dim); letter-spacing: 0.06em; }
 @media (max-width: 768px) {
-  nav { padding: 0 20px; }
-  .nav-links { gap: 18px; }
-  .nav-links a { font-size: 10px; }
-  .home-hero { padding: 56px 20px 48px; }
-  .home-sections { grid-template-columns: 1fr; }
+  nav { padding: 0 20px; } .nav-links { gap: 18px; } .nav-links a { font-size: 10px; }
+  .home-hero { padding: 56px 20px 48px; } .home-sections { grid-template-columns: 1fr; }
   .home-section-card { border-right: none; border-bottom: 1px dashed var(--border); }
-  .page-header { padding: 36px 20px 28px; }
-  .learn-layout { grid-template-columns: 1fr; }
-  .learn-subnav {
-    position: static;
-    height: auto;
-    border-right: none;
-    border-bottom: 1px dashed var(--border);
-    display: flex;
-    padding: 12px 20px;
-    gap: 4px;
-    overflow-x: auto;
-  }
+  .page-header { padding: 36px 20px 28px; } .learn-layout { grid-template-columns: 1fr; }
+  .learn-subnav { position: static; height: auto; border-right: none; border-bottom: 1px dashed var(--border); display: flex; padding: 12px 20px; gap: 4px; overflow-x: auto; }
   .subnav-item { padding: 6px 14px; border-left: none; border-bottom: 2px solid transparent; white-space: nowrap; }
   .subnav-item.active { border-left: none; border-bottom-color: var(--accent); }
-  .learn-content { padding: 32px 20px 60px; }
-  .build-filters { padding: 16px 20px; }
-  .build-grid { padding: 20px; grid-template-columns: 1fr; }
-  .think-filters { padding: 16px 20px; }
-  .think-feed { padding: 0 20px 60px; }
-  footer { padding: 20px; }
+  .learn-content { padding: 32px 20px 60px; } .build-filters { padding: 16px 20px; }
+  .build-grid { padding: 20px; grid-template-columns: 1fr; } .think-filters { padding: 16px 20px; }
+  .think-feed { padding: 0 20px 60px; } footer { padding: 20px; }
 }
-/* ─── FADE IN ─── */
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(12px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-.page.active > * {
-  animation: fadeUp 0.3s ease forwards;
-}
+@keyframes fadeUp { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+.page.active > * { animation: fadeUp 0.3s ease forwards; }
 </style>
 </head>
 <body>
-<!-- NAV -->
 <nav>
   <div class="nav-logo" onclick="navigate('home')">o3o</div>
   <ul class="nav-links">
@@ -530,47 +121,33 @@ footer {
     <li><a onclick="navigate('think')" data-page="think">Think</a></li>
   </ul>
 </nav>
-<!-- ══════════════════════════════════
-     HOME
-══════════════════════════════════ -->
 <div id="page-home" class="page active">
   <div class="home-hero">
     <div class="home-eyebrow">o3o &nbsp;·&nbsp; personal site</div>
     <h1 class="home-headline">Learning<br>in public.</h1>
-    <p class="home-bio">
-      A structured space for thinking, building, and documenting what I'm figuring out.
-      No polish theater — just the work.
-    </p>
+    <p class="home-bio">A structured space for thinking, building, and documenting what I'm figuring out. No polish theater — just the work.</p>
   </div>
   <div class="home-sections">
     <div class="home-section-card" onclick="navigate('learn')">
-      <div class="hsc-label">01</div>
-      <div class="hsc-title">Learn</div>
+      <div class="hsc-label">01</div><div class="hsc-title">Learn</div>
       <div class="hsc-desc">Foundations, applied concepts, and pinned references. Organized for how I actually think — not for search engines.</div>
       <div class="hsc-arrow">explore →</div>
     </div>
     <div class="home-section-card" onclick="navigate('build')">
-      <div class="hsc-label">02</div>
-      <div class="hsc-title">Build</div>
+      <div class="hsc-label">02</div><div class="hsc-title">Build</div>
       <div class="hsc-desc">Projects in all states — live, in progress, and archived. Filter by status. No graveyard energy, just honesty.</div>
       <div class="hsc-arrow">explore →</div>
     </div>
     <div class="home-section-card" onclick="navigate('think')">
-      <div class="hsc-label">03</div>
-      <div class="hsc-title">Think</div>
+      <div class="hsc-label">03</div><div class="hsc-title">Think</div>
       <div class="hsc-desc">A chronological feed of ideas, breakdowns, takes, and open questions. Tagged, not categorized.</div>
       <div class="hsc-arrow">explore →</div>
     </div>
   </div>
 </div>
-<!-- ══════════════════════════════════
-     LEARN
-══════════════════════════════════ -->
 <div id="page-learn" class="page">
   <div class="page-header">
-    <div class="page-header-row">
-      <h1 class="page-title">Learn</h1>
-    </div>
+    <div class="page-header-row"><h1 class="page-title">Learn</h1></div>
     <p class="page-subtitle">Organized into three tiers: foundational concepts, applied techniques, and pinned references.</p>
   </div>
   <div class="learn-layout">
@@ -580,76 +157,44 @@ footer {
       <a class="subnav-item" onclick="switchLearn('references', this)">References ↓</a>
     </nav>
     <div class="learn-content">
-      <!-- FOUNDATIONS -->
       <div id="learn-foundations" class="learn-section active">
         <div class="learn-section-title">Foundations</div>
         <div class="learn-section-desc">First-principles breakdowns. Mental models. Concepts worth understanding from the ground up.</div>
-        <!-- LEARN_FOUNDATIONS_CONTENT -->
-        <div class="learn-empty">// more entries coming —</div>
-        <!-- References anchor -->
+        <div id="foundations-entries"></div>
         <div class="references-section" id="references-anchor">
           <div class="references-title">References</div>
-          <!-- REFS_CONTENT -->
+          <div id="refs-entries"></div>
         </div>
       </div>
-      <!-- APPLIED -->
       <div id="learn-applied" class="learn-section">
         <div class="learn-section-title">Applied</div>
         <div class="learn-section-desc">How things work in practice. Tools, techniques, workflows worth documenting.</div>
-        <!-- LEARN_APPLIED_CONTENT -->
-        <div class="learn-empty">// more entries coming —</div>
+        <div id="applied-entries"></div>
       </div>
-      <!-- REFERENCES (treated as a view too) -->
       <div id="learn-references" class="learn-section">
         <div class="learn-section-title">References</div>
         <div class="learn-section-desc">A pinned resource list. Not a nav tab — just an anchor. The good stuff worth bookmarking.</div>
-        <div class="ref-item">
-          <span class="ref-name">[ Resource name ]</span>
-          <a href="#" class="ref-link">link →</a>
-        </div>
-        <div class="ref-item">
-          <span class="ref-name">[ Resource name ]</span>
-          <a href="#" class="ref-link">link →</a>
-        </div>
-        <div class="learn-empty" style="margin-top:24px">// pin resources here —</div>
+        <div id="refs-entries-tab"></div>
       </div>
     </div>
   </div>
 </div>
-<!-- ══════════════════════════════════
-     BUILD
-══════════════════════════════════ -->
 <div id="page-build" class="page">
   <div class="page-header">
-    <div class="page-header-row">
-      <h1 class="page-title">Build</h1>
-    </div>
+    <div class="page-header-row"><h1 class="page-title">Build</h1></div>
     <p class="page-subtitle">All projects. Filter by status. Default shows everything.</p>
   </div>
   <div class="build-filters">
     <button class="filter-pill active" data-filter="all" onclick="filterBuild(this)">All</button>
-    <button class="filter-pill" data-filter="live" onclick="filterBuild(this)">
-      <span style="display:inline-block;width:6px;height:6px;border-radius:50%;background:#7ec87e;margin-right:6px;vertical-align:middle"></span>Live
-    </button>
-    <button class="filter-pill" data-filter="in-progress" onclick="filterBuild(this)">
-      <span style="display:inline-block;width:6px;height:6px;border-radius:50%;background:#e8c87e;margin-right:6px;vertical-align:middle"></span>In Progress
-    </button>
-    <button class="filter-pill" data-filter="archive" onclick="filterBuild(this)">
-      <span style="display:inline-block;width:6px;height:6px;border-radius:50%;background:#3a3230;margin-right:6px;vertical-align:middle"></span>Archive
-    </button>
+    <button class="filter-pill" data-filter="live" onclick="filterBuild(this)"><span style="display:inline-block;width:6px;height:6px;border-radius:50%;background:#7ec87e;margin-right:6px;vertical-align:middle"></span>Live</button>
+    <button class="filter-pill" data-filter="in-progress" onclick="filterBuild(this)"><span style="display:inline-block;width:6px;height:6px;border-radius:50%;background:#e8c87e;margin-right:6px;vertical-align:middle"></span>In Progress</button>
+    <button class="filter-pill" data-filter="archive" onclick="filterBuild(this)"><span style="display:inline-block;width:6px;height:6px;border-radius:50%;background:#3a3230;margin-right:6px;vertical-align:middle"></span>Archive</button>
   </div>
-  <div class="build-grid">
-    <!-- BUILD_CONTENT -->
-  </div>
+  <div class="build-grid" id="build-entries"></div>
 </div>
-<!-- ══════════════════════════════════
-     THINK
-══════════════════════════════════ -->
 <div id="page-think" class="page">
   <div class="page-header">
-    <div class="page-header-row">
-      <h1 class="page-title">Think</h1>
-    </div>
+    <div class="page-header-row"><h1 class="page-title">Think</h1></div>
     <p class="page-subtitle">Chronological feed. Tagged, not categorized. Filter by tag below.</p>
   </div>
   <div class="think-filters">
@@ -659,59 +204,113 @@ footer {
     <button class="tag-pill" data-tag="take" onclick="filterThink(this)">take</button>
     <button class="tag-pill" data-tag="question" onclick="filterThink(this)">question</button>
   </div>
-  <div class="think-feed">
-    <!-- THINK_CONTENT -->
-  </div>
+  <div class="think-feed" id="think-entries"></div>
 </div>
-<!-- FOOTER -->
 <footer>
   <div class="footer-logo">o3o</div>
   <div class="footer-note">// work in progress</div>
 </footer>
 <script>
-  // ── Page navigation ──
+  function firstParagraph(body) {
+    if (!body) return '';
+    return body.split(/\n\n+/)[0].replace(/\n/g, ' ').trim();
+  }
+  function empty(msg) {
+    return '<div class="learn-empty">' + msg + '</div>';
+  }
+  function renderThinkEntry(e) {
+    return '<div class="post-row" data-tags="' + (e.tag||'') + '">'
+      + '<div class="post-meta">'
+      + '<span class="post-date">' + (e.date||'') + '</span>'
+      + '<span class="post-tag-badge ' + (e.tag||'') + '">' + (e.tag||'') + '</span>'
+      + '</div>'
+      + '<div class="post-title">' + e.title + '</div>'
+      + '<div class="post-excerpt">' + firstParagraph(e.body) + '</div>'
+      + '</div>';
+  }
+  function renderBuildEntry(e) {
+    var labels = { live: 'Live', 'in-progress': 'In Progress', archive: 'Archive' };
+    return '<div class="project-card" data-status="' + (e.tag||'') + '">'
+      + '<div class="project-status">'
+      + '<span class="status-dot ' + (e.tag||'') + '"></span>'
+      + (labels[e.tag] || e.tag || '')
+      + '</div>'
+      + '<div class="project-title">' + e.title + '</div>'
+      + '<div class="project-desc">' + firstParagraph(e.body) + '</div>'
+      + '<div class="project-tags"></div>'
+      + '</div>';
+  }
+  function renderLearnEntry(e) {
+    return '<div class="learn-entry">'
+      + '<div class="learn-entry-title">' + e.title + '</div>'
+      + '<div class="learn-entry-meta">' + (e.date||'') + '</div>'
+      + '<div class="learn-entry-excerpt">' + firstParagraph(e.body) + '</div>'
+      + '</div>';
+  }
+  function renderRefEntry(e) {
+    var url = e.url || (e.body && e.body.match(/https?:\/\/[^\s]+/) && e.body.match(/https?:\/\/[^\s]+/)[0]) || '#';
+    return '<div class="ref-item">'
+      + '<span class="ref-name">' + e.title + '</span>'
+      + '<a href="' + url + '" class="ref-link" target="_blank" rel="noopener noreferrer">link →</a>'
+      + '</div>';
+  }
+  async function loadContent() {
+    var data;
+    try {
+      var res = await fetch('content.json');
+      data = await res.json();
+    } catch(e) {
+      console.warn('content.json not found or failed to load');
+      return;
+    }
+    var thinkEl = document.getElementById('think-entries');
+    if (thinkEl) thinkEl.innerHTML = (data.think && data.think.length) ? data.think.map(renderThinkEntry).join('') : empty('// nothing here yet —');
+    var buildEl = document.getElementById('build-entries');
+    if (buildEl) buildEl.innerHTML = (data.build && data.build.length) ? data.build.map(renderBuildEntry).join('') : empty('// nothing here yet —');
+    var foundationsEl = document.getElementById('foundations-entries');
+    if (foundationsEl) foundationsEl.innerHTML = (data.foundations && data.foundations.length) ? data.foundations.map(renderLearnEntry).join('') : empty('// more entries coming —');
+    var appliedEl = document.getElementById('applied-entries');
+    if (appliedEl) appliedEl.innerHTML = (data.applied && data.applied.length) ? data.applied.map(renderLearnEntry).join('') : empty('// more entries coming —');
+    var refsHtml = (data.refs && data.refs.length) ? data.refs.map(renderRefEntry).join('') : empty('// pin resources here —');
+    var refsEl = document.getElementById('refs-entries');
+    if (refsEl) refsEl.innerHTML = refsHtml;
+    var refsTabEl = document.getElementById('refs-entries-tab');
+    if (refsTabEl) refsTabEl.innerHTML = refsHtml;
+  }
+  loadContent();
   function navigate(page) {
-    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-    document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
-    const target = document.getElementById('page-' + page);
+    document.querySelectorAll('.page').forEach(function(p) { p.classList.remove('active'); });
+    document.querySelectorAll('.nav-links a').forEach(function(a) { a.classList.remove('active'); });
+    var target = document.getElementById('page-' + page);
     if (target) target.classList.add('active');
-    const link = document.querySelector(`.nav-links a[data-page="${page}"]`);
+    var link = document.querySelector('.nav-links a[data-page="' + page + '"]');
     if (link) link.classList.add('active');
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
-  // ── Learn sub-nav ──
   function switchLearn(section, el) {
-    document.querySelectorAll('.learn-section').forEach(s => s.classList.remove('active'));
-    document.querySelectorAll('.subnav-item').forEach(a => a.classList.remove('active'));
-    const target = document.getElementById('learn-' + section);
+    document.querySelectorAll('.learn-section').forEach(function(s) { s.classList.remove('active'); });
+    document.querySelectorAll('.subnav-item').forEach(function(a) { a.classList.remove('active'); });
+    var target = document.getElementById('learn-' + section);
     if (target) target.classList.add('active');
     if (el) el.classList.add('active');
   }
-  // ── Build filter ──
   function filterBuild(btn) {
-    const filter = btn.dataset.filter;
-    document.querySelectorAll('.filter-pill').forEach(p => p.classList.remove('active'));
+    var filter = btn.dataset.filter;
+    document.querySelectorAll('.filter-pill').forEach(function(p) { p.classList.remove('active'); });
     btn.classList.add('active');
-    document.querySelectorAll('.project-card').forEach(card => {
-      if (filter === 'all' || card.dataset.status === filter) {
-        card.removeAttribute('data-hidden');
-      } else {
-        card.setAttribute('data-hidden', 'true');
-      }
+    document.querySelectorAll('.project-card').forEach(function(card) {
+      if (filter === 'all' || card.dataset.status === filter) { card.removeAttribute('data-hidden'); }
+      else { card.setAttribute('data-hidden', 'true'); }
     });
   }
-  // ── Think tag filter ──
   function filterThink(btn) {
-    const tag = btn.dataset.tag;
-    document.querySelectorAll('.tag-pill').forEach(p => p.classList.remove('active'));
+    var tag = btn.dataset.tag;
+    document.querySelectorAll('.tag-pill').forEach(function(p) { p.classList.remove('active'); });
     btn.classList.add('active');
-    document.querySelectorAll('.post-row').forEach(row => {
-      const tags = row.dataset.tags.split(' ');
-      if (tag === 'all' || tags.includes(tag)) {
-        row.removeAttribute('data-hidden');
-      } else {
-        row.setAttribute('data-hidden', 'true');
-      }
+    document.querySelectorAll('.post-row').forEach(function(row) {
+      var tags = row.dataset.tags.split(' ');
+      if (tag === 'all' || tags.includes(tag)) { row.removeAttribute('data-hidden'); }
+      else { row.setAttribute('data-hidden', 'true'); }
     });
   }
 </script>

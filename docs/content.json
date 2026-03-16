@@ -1,0 +1,91 @@
+{
+  "think": [
+    {
+      "type": "think",
+      "title": "AI-Powered Reminders",
+      "tag": "idea",
+      "date": "March 16, 2026",
+      "body": "Bookmarking is broken. Save something, never see it again. The problem isn't saving — it's that nothing ever surfaces it back to you.\nThe idea: a brain dump layer where you throw in anything — links, thoughts, half-formed ideas — and the AI handles the organizing. No manual tagging, no folders. Just input.\nFrom there it reminds you on a cadence (daily, weekly) and over time starts classifying what you're actually saving. Patterns emerge. You don't have to think about structure upfront — it builds itself from usage.",
+      "url": null
+    },
+    {
+      "type": "think",
+      "title": "AI Toolkit for Small Businesses That Actually Can't Afford to Hire",
+      "tag": "idea",
+      "date": "March 16, 2026",
+      "body": "Most AI tools are built for people who already know how to use AI. Small businesses don't need that — they need something that does the job without a learning curve.\nThe idea: a stripped-down AI toolkit that onboards itself to your business first. You put in your background, location, customer type, tone — and everything it generates from that point is already calibrated to you. No prompting, no tweaking, no figuring it out.\nThe core offerings would cover the stuff small businesses are constantly doing manually: marketing materials (graphics, copy, captions, menus), hiring and recruiting content, invoices, and meeting notes — dump in a brain dump and it organizes it into something usable.\nCompetitor analysis is an interesting angle too. If it can pull publicly available info on local competitors, that's a feature a small business owner would actually pay for.\nThe onboarding layer is what makes it different. Without that, it's just another AI tool. With it, everything outputs feeling like it came from inside the business — not from a generic template.",
+      "url": null
+    },
+    {
+      "type": "think",
+      "title": "Block Explorers Are Broken for Normal People",
+      "tag": "idea",
+      "date": "March 16, 2026",
+      "body": "Every block explorer assumes you already know what you're looking at. Raw hex, gas denominations, cryptic status codes — it's a dashboard built by engineers for engineers. There's a real product gap here: an AI-native explorer that abstracts the noise and explains what's actually happening in plain language. Tooltips, plain-English transaction summaries, contextual icons — the block explorer redesigned for humans first.\nSmart contracts are the worst offender. You can verify a contract today, but reading the code is useless if you don't speak Solidity. An AI layer that breaks the contract into conceptual sections — here's what this part does, here's what triggers it, here's what it controls — would make verified contracts actually meaningful to the people using them.",
+      "url": null
+    },
+    {
+      "type": "think",
+      "title": "On Building in Public",
+      "tag": "idea",
+      "date": "March 16, 2026",
+      "body": "There's something clarifying about showing your work before it's finished. The pressure to present a polished version of yourself dissolves when you commit to transparency.\n\nThe rough edges aren't a liability — they're proof that the thing is real.",
+      "url": null
+    },
+    {
+      "type": "think",
+      "title": "The \"AI Guy at the Company\" Playbook",
+      "tag": "idea",
+      "date": "March 16, 2026",
+      "body": "Most companies don't need an AI consultant — they need someone internal who already gets the business to start connecting dots. That's a different pitch than selling a retainer. The real move is becoming that person first, then formalizing it from the inside out.\nThe entry point is simple: find 2-3 real pain points, build small working solutions using no-code tools, and show results — not potential. One win gets you the room to do the next one. Document everything as you go. That becomes your portfolio.\nOnce you have a few wins, you start owning it formally. Ask for an \"AI initiatives\" function, even if it's informal. Track ROI. Time saved, cost reduced, revenue touched. That data is what makes the jump to external work credible.\nBy the time you go external, you're not starting from zero. You have deployed work, a repeatable process for diagnosing and solving AI problems, and deep knowledge of at least one industry. That's a stronger foundation than most consultants ever build.",
+      "url": null
+    },
+    {
+      "type": "think",
+      "title": "The File Directory as Company",
+      "tag": "idea",
+      "date": "March 16, 2026",
+      "body": "In an AI-first world, the file directory is the company. The structure you build — folders, naming, hierarchy — is how the system understands what you're doing and why.\nThere's a visualization tool buried in this idea. Something that lets you click through your directory and see how everything connects. Not a file explorer — more like a map. Progressive disclosure in practice: you see the shape of the company before you see the files.\nBut the more interesting version is a \"design Claude\" program. Because that's actually what you're doing when you structure a directory for AI. You're not organizing files. You're designing the mind that works inside your company.",
+      "url": null
+    }
+  ],
+  "build": [
+    {
+      "type": "build",
+      "title": "o3o-site Publishing System",
+      "tag": "in-progress",
+      "date": "March 16, 2026",
+      "body": "A lightweight static site generator built around plain text content files. No framework, no dependencies — just a Node.js script that reads, parses, and injects.\n\nContent lives in folders by type. Run build.js, get a site.",
+      "url": null
+    }
+  ],
+  "foundations": [
+    {
+      "type": "learn",
+      "title": "How GitHub Pages Works",
+      "tag": "foundations",
+      "date": "March 16, 2026",
+      "body": "GitHub Pages serves static files directly from a repo branch. You can point it at a specific folder — like /docs — so your source files and output don't mix.\n\nNo build server required. Push HTML, it goes live.",
+      "url": null
+    }
+  ],
+  "applied": [],
+  "refs": [
+    {
+      "type": "refs",
+      "title": "GitHub Pages Docs",
+      "tag": "tools",
+      "date": "March 16, 2026",
+      "body": "https://docs.github.com/en/pages",
+      "url": null
+    },
+    {
+      "type": "ref",
+      "title": "a16z Crypto Portfolio",
+      "tag": "Website design inspiration",
+      "date": null,
+      "body": "",
+      "url": "https://a16zcrypto.com/portfolio/"
+    }
+  ]
+}
