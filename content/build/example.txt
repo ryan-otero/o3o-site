@@ -1,0 +1,9 @@
+---PUBLISH BLOCK---
+TYPE: build
+TITLE: o3o-site Publishing System
+TAG/SECTION: project
+DATE: March 16, 2026
+BODY: A lightweight static site generator built around plain text content files. No framework, no dependencies — just a Node.js script that reads, parses, and injects.
+
+Content lives in folders by type. Run build.js, get a site.
+---END---
